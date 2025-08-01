@@ -4,7 +4,10 @@ import joblib
 import matplotlib.pyplot as plt
 
 # Load trained model (trained on 4 features only)
-model = joblib.load("my_model.pkl")
+#model = joblib.load("my_model.pkl")
+import os
+model_path = os.path.join(os.path.dirname(__file__), "my_model.pkl")
+model = joblib.load(model_path)
 
 # Define feature input functions with range info
 feature_inputs = {
@@ -78,5 +81,6 @@ else:
 
         except Exception as e:
             st.error(f"❌ Prediction failed: {e}")
+
 
 
